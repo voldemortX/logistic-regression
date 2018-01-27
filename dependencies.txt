@@ -1,0 +1,8 @@
+packets:
+numpy
+pickle
+re
+nltk
+
+python version:
+3.6.2
