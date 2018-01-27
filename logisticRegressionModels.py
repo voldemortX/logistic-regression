@@ -16,7 +16,7 @@ def sigmoid(z):
     return s;
 
 
-def initialize_with_zeros(dim):
+def initializeWithZeros(dim):
     """
     This function creates a vector of zeros of shape (dim, 1) for w and initializes b to 0.
 
@@ -146,7 +146,7 @@ def predict(w, b, X):
     return Y_prediction;
 
 
-def model(X_train, Y_train, X_test, Y_test, num_iterations, learning_rate, print_cost):
+def simpleModel(X_train, Y_train, X_test, Y_test, num_iterations, learning_rate, print_cost):
     """
     Builds a logistic regression model with no cv set
 
@@ -165,7 +165,7 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations, learning_rate, print
 
     n = X_train.shape[0];
     # initialize parameters with zeros
-    w, b = initialize_with_zeros(n);
+    w, b = initializeWithZeros(n);
 
     # Gradient descent
     parameters, grads, costs = optimize(w, b, X_train, Y_train, num_iterations, learning_rate, print_cost);
