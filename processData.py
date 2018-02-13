@@ -3,12 +3,11 @@ import pickle
 import re
 import numpy as np
 
-
 def getX_ori():
     print("Fetching reviews...");
     # get a list of sentences in lowercase
     text = open("Reviews.txt").read();
-    pattern = re.compile(r'[^a-z\n ]+');
+X    pattern = re.compile(r'[^a-z\n ]+');
     text = pattern.sub('', text);
     X_ori = re.split("\n", text);
     return X_ori;
@@ -46,11 +45,11 @@ def divideData(X, y):
     # divide data by 60:20:20
     np.random.seed(1);  # stabilize outcome
     m = X.shape[0];
-    np.insert(X, 0, values=np.squeeze(y), axis=1);
+    X = np.insert(X, 0, values=np.squeeze(y), axis=1);
     np.random.shuffle(X);
     X = X.T;
     y = X[0, :].reshape(1, m);
-    np.delete(X, 0, 0);
+    X = np.delete(X, 0, 0);
     X_train = X[:, 0:12000];
     X_cv = X[:, 12000:16000];
     X_test = X[:, 16000:];
